@@ -1,0 +1,18 @@
+"navItems": [
+  {
+    "name": "News",
+    "link": "index"
+  },
+  {
+    "name": "Authors",
+    "link": "authors"
+  },
+  {
+    "name": "Our Gallery",
+    "link": "gallery"
+  },
+  {
+    "name": "Contact",
+    "link": "contact"
+  }
+]
