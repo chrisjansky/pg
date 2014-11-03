@@ -1,0 +1,12 @@
+header.o-header
+  a.o-logo(href="index", title="Zpět na úvodní stránku")
+    img.o-logo__image(src="assets/images/logo_photogether.png", alt="Photogether Gallery Logo")
+    strong.o-logo__title Photogether 
+      span.o-logo__break Gallery
+  nav.o-nav
+    ul.o-nav__list
+      each instance, index in navItems
+        if (pageSettings.index == index)
+          li.o-nav__item: a.o-nav__link--selected(href=instance.link)!= instance.name
+        else
+          li.o-nav__item: a.o-nav__link(href=instance.link)!= instance.name
