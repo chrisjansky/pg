@@ -1,0 +1,25 @@
+{
+  "name": "arf",
+  "version": "0.1.0",
+  "authors": [
+    "Christian Jánský"
+  ],
+  "description": "Web Ateliéru reklamní fotografie.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "normalize-css": "latest",
+    "jquery": "latest",
+    "modernizr": "latest",
+    "chj-framework": "latest",
+    "idangerous-swiper": "latest",
+    "featherlight": "latest",
+    "jquery-pjax": "latest"
+  }
+}
