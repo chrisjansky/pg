@@ -1,0 +1,158 @@
+.o-logo {
+  display: block;
+  width: em(140);
+  height: em(115);
+  overflow: hidden;
+  text-decoration: none;
+  @include state--link {
+    opacity: 1;
+  }
+  @include state--active {
+    opacity: .75;
+  }
+}
+.o-logo__image {
+  width: em(140);
+}
+.o-logo__break {
+  display: block;
+}
+
+.o-nav__list {
+  list-style: none;
+  padding-left: em($ratio--l);
+}
+.o-nav__item {
+  margin-bottom: em($ratio--xs);
+}
+
+.o-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: em($ratio--m);
+}
+
+// Authors
+.o-people {
+  @include clearfix;
+  @include reset-list;
+}
+.o-people__item {
+  @include span-columns($column--one);
+  @include omega(3n);
+  padding-bottom: em($ratio--b);
+}
+.o-people__link {
+  display: block;
+  text-decoration: none;
+  @include state--hover {
+    .o-people__thumbnail {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+.o-people__thumbnail {
+  position: fixed;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity $duration--s;
+}
+.o-people__thumbnail--1 {
+  left: 40%;
+  top: 30%;
+}
+.o-people__thumbnail--2 {
+  left: 10%;
+  top: 40%;
+}
+.o-people__thumbnail--3 {
+  left: 10%;
+  top: 10%;
+}
+.o-people__thumbnail--4 {
+  right: 30%;
+  bottom: 10%;
+}
+.o-people__thumbnail--5 {
+  right: 10%;
+  top: 10%;
+}
+
+// Pagination
+.o-pagination {
+  display: inline-block;
+  list-style: none;
+  border: $line--s solid $c-grey2;
+  @include padding(null em($ratio--b));
+}
+.o-pagination__item {
+  display: inline-block;
+  margin-bottom: -$line--s;
+}
+[class^="o-pagination__link"],
+[class*=" o-pagination__link"] {
+  display: inline-block;
+  padding: em($ratio--s);
+  text-decoration: none;
+}
+.o-pagination__link--selected {
+  border-bottom: $line--s solid;
+}
+
+// Dotlist.
+.o-dotlist__item--nostyle {
+  &:before {
+    display: none;
+  }
+}
+
+// Google Maps.
+.o-map {
+  width: 100%;
+  height: em(400);
+  margin-bottom: em($ratio--m);
+}
+
+// Gallery.
+.o-carousel {
+  padding-left: em($ratio--h);
+  padding-right: em($ratio--xl);
+  user-select: none;
+  // Important to set box-sizing!
+  box-sizing: content-box;
+}
+.o-carousel__list {
+  list-style: none;
+  padding-left: 0;
+  white-space: nowrap;
+}
+.o-carousel__item {
+  display: inline-block;
+  & + & {
+    padding-left: em($ratio--b);
+  }
+}
+.o-carousel__link {
+  display: block;
+  @include state--hover {
+    opacity: .75;
+  }
+}
+.o-carousel__arrow {
+  padding: em($ratio--b);
+  text-decoration: none;
+}
+
+// Gallery.
+.o-gallery {
+  @include reset-list;
+}
+.o-gallery__item {
+  display: inline-block;
+}
+.o-gallery__image {
+  width: em(100);
+}

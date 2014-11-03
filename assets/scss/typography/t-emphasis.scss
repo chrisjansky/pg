@@ -1,0 +1,15 @@
+[class^="t-caps"],
+[class*=" t-caps"] {
+  letter-spacing: .125em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  font-weight: $mono--regular;
+}
+.t-caps--small {
+  font-size: em($unit--xs);
+}
+.t-date {
+  font-family: $font--serif;
+  font-size: em($unit--s);
+  letter-spacing: .25em;
+}

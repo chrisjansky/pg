@@ -1,0 +1,40 @@
+// Custom styles overriding the default ones from bower_components/
+.featherlight {
+  @include media($phone) {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  &:last-of-type {
+    background: rgba(black, .85);
+  }
+
+  .featherlight-content {
+    position: relative;
+    border: 0;
+    padding: 0;
+    min-width: initial;
+    max-height: 90%;
+    background-color: transparent;
+    overflow: visible;
+  }
+
+  .featherlight-image {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .featherlight-close-icon {
+    right: em(-$ratio--l);
+    width: auto;
+    line-height: normal;
+    background-color: transparent;
+    color: $c-link;
+    @include state--active {
+      color: $c-hover;
+    }
+  }
+  
+}

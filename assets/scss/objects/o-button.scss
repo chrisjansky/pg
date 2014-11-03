@@ -1,0 +1,23 @@
+[class^="o-button--"],
+[class*=" o-button--"] {
+  font-weight: $mono--bold;
+}
+.o-button--selected {
+  background-color: $c-grey3;
+}
+.o-button--dark {
+  @include state--link {
+    color: $c-grey5;
+  }
+  @include state--active {
+    color: $c-grey4;
+  }
+}
+.o-button--light {
+  @include state--link {
+    color: $c-grey3;
+  }
+  @include state--active {
+    color: $c-grey4;
+  }
+}

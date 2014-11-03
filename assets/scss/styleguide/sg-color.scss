@@ -1,0 +1,98 @@
+.sg-color {
+  text-align: center;
+}
+.sg-color__group {
+  margin: em($ratio--l) 0;
+}
+// Swatches.
+[class^="sg-color__swatch"],
+[class*=" sg-color__swatch"] {
+  position: relative;
+  display: inline-block;
+  width: em($ratio--h);
+  height: em($ratio--h);
+  border-radius: 50%;
+  background-color: black;
+  margin: em($ratio--s);
+}
+.sg-color__swatch--small {
+  width: em($ratio--l);
+  height: em($ratio--l);
+  margin: em($ratio--xs);
+}
+// Fields.
+.sg-color__field {
+  position: relative;
+  text-align: center;
+  height: 40vh;
+}
+// Overlay.
+.sg-color__overlay {
+  @include stretch-overlay;
+  @include pseudo-center--parent;
+  font-size: em($ratio--l);
+}
+[class^="sg-color__glyph"],
+[class*=" sg-color__glyph"] {
+  & + & {
+    margin-left: 25vw;
+  }
+}
+.sg-color__glyph--white {
+  color: white;
+}
+.sg-color__glyph--black {
+  color: black;
+}
+
+// Main background colors.
+.sg-background--main1 {
+  background-color: $c-color1;
+}
+.sg-background--main2 {
+  background-color: $c-color2;
+}
+.sg-background--main3 {
+  background-color: $c-color3;
+}
+.sg-background--main4 {
+  background-color: $c-color4;
+}
+// Main light.
+.sg-background--main1--light {
+  background-color: $c-color1--light;
+}
+.sg-background--main2--light {
+  background-color: $c-color2--light;
+}
+.sg-background--main3--light {
+  background-color: $c-color3--light;
+}
+.sg-background--main4--light {
+  background-color: $c-color4--light;
+}
+// Neutral backgrounds.
+.sg-background--grey1 {
+  background-color: $c-grey1;
+}
+.sg-background--grey2 {
+  background-color: $c-grey2;
+}
+.sg-background--grey3 {
+  background-color: $c-grey3;
+}
+.sg-background--grey4 {
+  background-color: $c-grey4;
+}
+.sg-background--grey5 {
+  background-color: $c-grey5;
+}
+.sg-background--grey6 {
+  background-color: $c-grey6;
+}
+.sg-background--grey7 {
+  background-color: $c-grey7;
+}
+.sg-background--grey8 {
+  background-color: $c-grey8;
+}

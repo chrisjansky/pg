@@ -1,0 +1,7 @@
+.t-link--simple {
+  text-decoration: none;
+  span {
+    border-bottom: $line--s solid;
+    padding-bottom: em($ratio--xxs);
+  }
+}

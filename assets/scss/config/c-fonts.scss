@@ -1,0 +1,18 @@
+// Families.
+$font--sans: "Helvetica", sans-serif;
+$font--serif: "Times", serif;
+$font--mono: "Inconsolata", monospace;
+
+// Weights.
+$sans--regular: normal;
+$sans--bold: bold;
+
+$serif--regular: normal;
+$serif--bold: bold;
+
+$mono--regular: 400;
+$mono--bold: 700;
+
+// Defaults.
+$font--default: $font--mono;
+$weight--default: $mono--regular;

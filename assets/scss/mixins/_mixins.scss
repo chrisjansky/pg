@@ -1,0 +1,15 @@
+@mixin layout-wrap--margin {
+  margin: em($ratio--b);
+  @include media($phone--landscape) {
+    margin: em($ratio--m);
+  }
+  @include media($tablet) {
+    margin: em($ratio--l);
+  }
+  @include media($desktop) {
+    margin: em($ratio--l) 6.5%;
+  }
+  @include media($desktop--wide) {
+    margin: em($ratio--l) 10%;
+  }
+}

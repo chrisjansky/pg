@@ -1,0 +1,56 @@
+// News
+.o-news {
+  @include reset-list;
+}
+[class^="o-news__item"],
+[class*=" o-news__item"] {
+  @include clearfix;
+  position: relative;
+  @include padding(em($ratio--m) 0);
+}
+.o-news__title {
+  @include span-columns($column--one);
+}
+.o-news__contextual {
+  margin-top: em($ratio--xxl);
+  @include shift($column--one);
+}
+.o-news__content {
+  overflow: auto;
+}
+.o-news__authors ul {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.o-news__item--gallery {
+  padding-bottom: 0;
+}
+
+// Image.
+.o-news__image {
+  position: absolute;
+  .o-news__item--1 & {
+    right: 0;
+  }
+  .o-news__item--2 & {
+    left: 25%;
+  }
+  .o-news__item--3 & {
+    left: 50%;
+  }
+  .o-news__item--4 & {
+    left: -10%;
+  }
+  .o-news__item--5 & {
+    left: 25%;
+  }
+}
+
+// Primary.
+.o-news__item--primary {
+  .o-news__image {
+    width: em(520);
+    left: 5%;
+  }
+}

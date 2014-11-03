@@ -1,0 +1,27 @@
+.m-contact {
+  @include clearfix;
+  & + & {
+    margin-top: em($ratio--l);
+  }
+}
+
+// About.
+.m-about__image {
+  width: 100%;
+}
+.m-about__content {
+  margin-top: em(-$ratio--h);
+  margin-right: em($ratio--b);
+}
+
+// Person.
+.m-person {
+  margin-top: em($ratio--b);
+}
+.m-person__image {
+  width: 100%;
+}
+.m-person__contact {
+  display: inline-block;
+  margin: 0;
+}
