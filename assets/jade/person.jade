@@ -1,0 +1,41 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: 1}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      a.t-link--simple(href="authors").t-caps
+        | &larr; 
+        span Back to Author Overview
+      .m-person
+        img.m-person__image(src="http://unsplash.it/1024/480/?image=242", alt="unsplash.it")
+        .m-person__name
+          h1.t-h1 Matyáš Pasparta
+        ul.m-person__contact.t-highlight--3.o-dotlist--stacked
+          li: a(href="#") www.portfolio.com
+          li: a(href="#") matyas@pasparta.com
+        .l-shift
+          .m-person__bio
+            p
+              span.t-highlight--paragraph Author bio. The series Research consists of several attempts, thoughts and observations I was persistently interested in but had no time to devote my time to. The Research thus represents a partial resolving of questions which were not resolved before. It was made on the basis of a theoretical examination of photography as a means of expression. It is thus closely connected to theoretical work. It deals with various problems; the most common clichés used nowadays as well as basis of imagery in colours and principles of seeing generally serve as good examples.
+        h2.t-h2 Projects
+        ul.o-news
+          each instance, index in [386, 345, 343, 313]
+            hr
+            li.o-news__item.o-news__item--secondary(class="o-news__item--#{index + 1}")
+              img.o-news__image(src="http://unsplash.it/320/180/?image=#{instance}", alt="unsplash.it")
+              .o-news__title
+                h2.o-news__name.t-h2
+                  span(class="t-highlight--#{index + 2}") Project Title
+              .o-news__content
+                p
+                  span.t-highlight--paragraph.t-highlight--soft Chosen photographs represent visualization of given problems or topics which were sketched. They actually originated as attempts, which – despite a real reason – gain a character of a childish game, which is, however, an ironic answer to the situation. Cheapjack, trivial and superficial humour, which serves as a simple defence against outside world, is also an important part. A high visual impressiveness of some attempts became a big problem. I thus chose – on purpose – the least successful ones or the attempt was repeated. Visuality is freed from any impressiveness; its function is merely descriptive. Its origin results from a long-time process called deskilling – getting rid of gained skills and one ́s own style in order to create a universal non-verified photography.
+              ul.o-gallery
+                each instance, index in [211, 105, 332, 59, 366]
+                  li.o-gallery__item
+                    a.o-gallery__link(href="http://unsplash.it/800/480/?image=#{instance}", data-lightbox)
+                      img.o-gallery__image(src="http://unsplash.it/200/120/?image=#{instance}", alt="unsplash.it") 
