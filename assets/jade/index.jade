@@ -1,0 +1,33 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: 0}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      strong.t-caps Latest News
+      ul.o-news
+        li.o-news__item.o-news__item--primary
+          img.o-news__image(src="http://unsplash.it/640/360/?image=242", alt="unsplash.it")
+          .o-news__title
+            h1.o-news__name.t-h1
+              span.t-highlight--1 News Title
+            span.o-news__date.t-date 27/10/2014
+          .o-news__content
+              p
+                span.t-highlight--paragraph.t-highlight--soft The old man babbled on, unheeded by the boys, who were long accustomed to his garrulousness, and whose vocabularies, besides, lacked the greater portion of the words he used.
+        each instance, index in [386, 345, 343, 313]
+          hr
+          li.o-news__item.o-news__item--secondary(class="o-news__item--#{index + 1}")
+            img.o-news__image(src="http://unsplash.it/320/180/?image=#{instance}", alt="unsplash.it")
+            .o-news__title
+              h2.o-news__name.t-h2
+                span(class="t-highlight--#{index + 2}") News Title
+              span.o-news__date.t-date 27/10/2014
+            .o-news__content
+              p
+                span.t-highlight--paragraph.t-highlight--soft The old man babbled on, unheeded by the boys, who were long accustomed to his garrulousness, and whose vocabularies, besides, lacked the greater portion of the words he used.
+      a.o-news__contextual.o-button--outline(href="archive") Archive

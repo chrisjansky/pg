@@ -1,0 +1,56 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: 1}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      strong.t-caps Authors
+      h1.t-h1
+        span.t-highlight--3 Students
+      ul.o-people
+        - var authorCount = 0
+        while authorCount < 20
+          li.o-people__item
+            a.o-people__link(href="person")
+              hr
+              img.o-people__thumbnail(src="http://unsplash.it/320/180/?image=#{authorCount * 10}", alt="unsplash.it", data-random="o-people__thumbnail")
+              span.t-highlight--white
+                if (authorCount % 7 == 0)
+                  | Jan Clona
+                else if (authorCount % 5 == 0)
+                  | Naděžda Ostrá
+                else if (authorCount % 4 == 0)
+                  | Tomáš Vyfotil
+                else if (authorCount % 2 == 0)
+                  | Ondřej Výbojka
+                else
+                  | Matyáš Pasparta
+              - authorCount++
+  section.m-graduates.l-section--light
+    .l-container
+      .l-wrap
+        h2.t-h2
+          span.t-highlight--5 Graduates
+        ul.o-people
+          - var authorCount = 0
+          while authorCount < 20
+            li.o-people__item
+              a.o-people__link(href="person")
+                hr
+                img.o-people__thumbnail(src="http://unsplash.it/320/180/?image=#{authorCount * 10}", alt="unsplash.it", data-random="o-people__thumbnail")
+                span.t-highlight--white
+                  if (authorCount % 7 == 0)
+                    | Jan Clona
+                  else if (authorCount % 5 == 0)
+                    | Naděžda Ostrá
+                  else if (authorCount % 4 == 0)
+                    | Tomáš Vyfotil
+                  else if (authorCount % 2 == 0)
+                    | Ondřej Výbojka
+                  else
+                    | Matyáš Pasparta
+                - authorCount++

@@ -1,0 +1,30 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: null}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      strong.t-caps Archive
+      ul.o-news
+        each doublePosts in [1, 2]
+          each instance, index in [386, 345, 343, 313, 242]
+            li.o-news__item.o-news__item--secondary(class="o-news__item--#{index + 1}")
+              img.o-news__image(src="http://unsplash.it/320/180/?image=#{instance}", alt="unsplash.it")
+              .o-news__title
+                h2.o-news__name.t-h2
+                  span(class="t-highlight--#{index + 1}") News Title
+                span.o-news__date.t-date 27/10/2014
+              .o-news__content
+                p
+                  span.t-highlight--paragraph.t-highlight--soft The old man babbled on, unheeded by the boys, who were long accustomed to his garrulousness, and whose vocabularies, besides, lacked the greater portion of the words he used.
+            hr
+      ul.o-news__contextual.o-pagination
+        li.o-pagination__item
+          span.o-pagination__link--selected 1
+        each instance in [2, 3, 4]
+          li.o-pagination__item
+            a.o-pagination__link(href="#")= instance

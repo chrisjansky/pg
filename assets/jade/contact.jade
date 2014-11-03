@@ -1,0 +1,37 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: 3}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      strong.t-caps Contact
+      .m-contact
+        h1.t-h1
+          span.t-highlight--4 Where to Find Us
+        .o-map#js-google_maps
+        .l-shift
+          ul.o-dotlist--stacked
+            li.o-dotlist__item--nostyle: strong Photogether Gallery
+            li Health Center Bunker
+            li Tr. Tomáše Bati 3705
+            li 760 01 Zlín, Czech Republic
+          .o-button-group--inline
+            a.o-button--outline(href="https://www.facebook.com/photogethergallery") Facebook
+            a.o-button--outline.o-button--dark(href="http://vimeo.com/photogether") Vimeo
+            a.o-button--outline.o-button--light(href="mailto:galleryphotogether@gmail.com") E-mail
+      .m-contact
+        h2.t-h2 Tomas Bata University 
+          span.t-break in Zlín 
+        .l-shift
+          ul.o-dotlist--stacked
+            li.o-dotlist__item--nostyle: strong Faculty of Multimedia Communications
+            li Studio of Advertising Photography
+            li Štefánikova 2431 
+            li 760 01 Zlín , Czech Republic
+          .o-button-group--inline
+            a.o-button--outline(href="https://www.facebook.com/reklamnifotografie?fref=ts") Facebook
+            a.o-button--outline.o-button--dark(href="http://www.utb.cz/fmk/struktura/reklamni-fotografie") UTB
