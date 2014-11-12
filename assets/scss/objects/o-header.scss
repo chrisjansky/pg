@@ -1,0 +1,12 @@
+.o-header {
+  @include media($phone) {
+    text-align: center;
+    @include padding(em($ratio--m) null null);
+  }
+  @include media($tablet__up) {
+    position: fixed;
+    top: 0;
+    left: 0; 
+    padding: em($ratio--m);
+  }
+}

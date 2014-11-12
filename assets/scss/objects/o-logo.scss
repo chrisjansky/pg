@@ -1,0 +1,19 @@
+.o-logo {
+  display: inline-block;
+  width: em(140);
+  height: em(115);
+  overflow: hidden;
+  text-decoration: none;
+  @include state--link {
+    opacity: 1;
+  }
+  @include state--active {
+    opacity: .75;
+  }
+}
+.o-logo__image {
+  width: em(140);
+}
+.o-logo__break {
+  display: block;
+}
