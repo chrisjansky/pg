@@ -1,0 +1,17 @@
+.l-block-group {
+  @include clearfix;
+}
+
+[class^="l-block--"],
+[class*=" l-block--"] {
+  // overflow: auto;
+  @include collapse-children;
+}
+
+.l-block--one {
+  float: left;
+  width: em($width--b);
+}
+.l-block--normal {
+  overflow: auto;
+}

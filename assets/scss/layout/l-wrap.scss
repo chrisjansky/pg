@@ -1,0 +1,63 @@
+// Default variant.
+.l-wrap {
+  padding: em($ratio--m);
+
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix;
+  @include collapse-children;
+
+  @include media($tablet) {
+    padding: em($ratio--l);
+  }
+  @include media($desktop) {
+    padding: em($ratio--l) 6.5%;
+  }
+  @include media($desktop--wide) {
+    padding: em($ratio--l) 10%;
+  }
+}
+
+// Small variant.
+.l-wrap--small {
+  padding-top: em($ratio--s);
+  padding-bottom: em($ratio--s);
+  @include media($tablet--portrait) {
+    padding-top: em($ratio--b);
+    padding-bottom: em($ratio--b);
+  }
+  @include media($tablet--landscape__up) {
+    padding-top: em($ratio--m);
+    padding-bottom: em($ratio--m);
+  }
+}
+
+// Big variant.
+.l-wrap--big {
+  padding-top: em($ratio--m);
+  padding-bottom: em($ratio--m);
+  @include media($tablet--portrait) {
+    padding-top: em($ratio--l);
+    padding-bottom: em($ratio--l);
+  }
+  @include media($tablet--landscape__up) {
+    padding-top: em($ratio--xl);
+    padding-bottom: em($ratio--xl);
+  }
+}
+
+// Modifications.
+.l-wrap--vertical {
+  padding-left: 0;
+  padding-right: 0;
+}
+.l-wrap--horizontal {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.l-wrap--no-top {
+  padding-top: 0;
+}
+.l-wrap--no-bottom {
+  padding-bottom: 0;
+}
