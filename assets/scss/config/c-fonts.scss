@@ -1,18 +1,20 @@
 // Families.
-$font--sans: "Helvetica", sans-serif;
-$font--serif: "Times", serif;
-$font--mono: "Inconsolata", monospace;
+$font__sans: "Helvetica", sans-serif;
+$font__serif: "Times", serif;
+$font__mono: "Inconsolata", monospace;
 
 // Weights.
-$sans--regular: normal;
-$sans--bold: bold;
+$font__sans--regular: normal;
+$font__sans--bold: bold;
 
-$serif--regular: normal;
-$serif--bold: bold;
+$font__serif--regular: normal;
+$font__serif--bold: bold;
 
-$mono--regular: 400;
-$mono--bold: 700;
+$font__mono--regular: 400;
+$font__mono--bold: 700;
 
 // Defaults.
-$font--default: $font--mono;
-$weight--default: $mono--regular;
+$default__size: $unit--b;
+$default__family: $font__mono;
+$default__weight: $font__mono--regular;
+$default__leading: 1.4;

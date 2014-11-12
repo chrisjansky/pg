@@ -2,13 +2,17 @@
 $em-base: $unit--b;
 
 // Neat settings.
-$grid-columns: 12;
-$portrait-columns: 6;
-$phone-columns: 4;
+$columns--desktop: 12;
+$columns--landscape: 8;
+$columns--portrait: 6;
+$columns--phone: 4;
 
+$grid-columns: $columns--desktop;
 $column: em($ratio--l);
-$gutter: em($ratio--b);
+$gutter: em($ratio--s);
 
 // Column span.
 $column--one: 4;
 $column--two: 8;
+
+$column--phone: 2;

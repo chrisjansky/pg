@@ -1,14 +1,4 @@
 // Primary colors.
-// $c-color1: hsb(220, 075, 095);
-// $c-color2: hsb(160, 035, 090);
-// $c-color3: hsb(040, 020, 100);
-// $c-color4: hsb(100, 030, 090);
-
-// $c-color1: hsb(350, 095, 095);
-// $c-color2: hsb(290, 080, 070);
-// $c-color3: hsb(050, 075, 085);
-// $c-color4: hsb(110, 075, 075);
-
 $c-color1: hsb(230, 085, 090);
 $c-color2: hsb(350, 090, 090);
 $c-color3: hsb(050, 100, 070);
@@ -20,7 +10,10 @@ $c-color2--light: tint($c-color2, 85%);
 $c-color3--light: lighten($c-color3, 50%);
 $c-color4--light: lighten($c-color4, 40%);
 
+$c-color1--dark: shade($c-color1, 50%);
 $c-color2--dark: shade($c-color2, 50%);
+$c-color3--dark: shade($c-color3, 50%);
+$c-color4--dark: shade($c-color4, 50%);
 
 // Neutral colors.
 $c-grey1: hsb(040, 01, 95);
@@ -33,7 +26,8 @@ $c-grey7: hsb(210, 04, 25);
 $c-grey8: hsb(210, 04, 10);
 
 // Interactive.
-$c-link: $c-color1;
-$c-hover: $c-color2;
+$c-link: black;
+$c-visited: $c-grey5;
+$c-hover: $c-color1;
 $c-select--bg: $c-color3--light;
 $c-select--text: $c-color3;

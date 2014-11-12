@@ -1,10 +1,9 @@
 // Units
-$unit--xl: 36;
-$unit--l:  20;
-$unit--m:  18;
-$unit--b:  16;
-$unit--s:  14;
-$unit--xs: 12;
+$unit--l:  18;
+$unit--m:  16;
+$unit--b:  14;
+$unit--s:  12;
+$unit--xs: 10;
 
 // Radius
 $radius--b: 2px;
@@ -16,6 +15,10 @@ $line--s: 1px;
 
 // Heights
 $height--b: 40;
+
+// Widths.
+$width--b: 180;
+$width--m: 290;
 
 // Ratios
 $ratio--xxh: round(golden-ratio($unit--b,  7));
