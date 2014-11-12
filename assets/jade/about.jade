@@ -1,0 +1,35 @@
+extends templates/_basic
+
+append template-variables
+  - var pageSettings = {index: null}
+
+block template-body
+  include partials/_header
+
+  main.l-container
+    .l-wrap
+      .l-block-group
+        .l-block--one
+          h1.t-subhead Recent
+          - var peopleCount = 5
+          include partials/_people
+        .l-block--normal
+          .l-inline
+            .l-inline__row
+              .l-inline__cell
+                h1.t-subhead Archive
+              .l-inline__cell
+                a.o-button--selected(href="about") About
+          - var peopleCount = 20
+          include partials/_people
+      hr.l-divider
+
+      .m-about
+        .l-column--primary
+          h1.t-h1 Photogether Gallery
+        .m-about__content
+          p Photogether Gallery vznikla v listopadu 2010 jako prostor pro současnou kulturu, když nám byl velkoryse poskytnut prostor protiatomového krytu pod zlínskou poliklinikou. Provozují ji studenti Ateliéru reklamní fotografie.
+          p Od ryze školních projektů se přesouváme k volnějším výstavám a kurátorským akcím. Zorganizovali jsme pár výstav, koncertů, předvánoční jarmark a přednášek. Chceme dokázat, že Zlín není město odkud musí všichni utíkat.
+        img.m-about__image(src="http://unsplash.it/1280/480/?image=242", alt="unsplash.it")
+        .l-shift
+          a.o-button(href="contact") Where to Find Us
