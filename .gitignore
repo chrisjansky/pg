@@ -22,6 +22,10 @@ source_files
 assets/css
 *.html
 
+## Wordpress
+wp/*
+!wp/wp-content/themes/pg
+
 ## Sass
 .sass-cache
 
