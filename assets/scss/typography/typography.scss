@@ -1,42 +1,17 @@
-// Highlights.
-.t-highlight--soft {
-  transition: background-color $duration--s;
-  .o-news__item & {
-    background-color: transparent;
-  }
-  .o-news__item:hover & {
-    background-color: white;
-  }
-}
-.t-highlight--paragraph {
-  padding: em($ratio--xxs) 0;
-  background-color: white;
-}
-.t-highlight--white {
-  background-color: white;
-}
-.t-highlight--1 {
-  color: $c-color1;
-  background-color: $c-color1--light;
-}
-.t-highlight--2 {
-  color: $c-color2;
-  background-color: $c-color2--light;
-}
-.t-highlight--3 {
-  color: $c-color3;
-  background-color: $c-color3--light;
-}
-.t-highlight--4 {
-  color: $c-color4;
-  background-color: $c-color4--light;
-}
-.t-highlight--5 {
-  color: $c-grey7;
-  background-color: $c-grey3;
+[class^="t-highlight"],
+[class*=" t-highlight"] {
+  outline: 3px solid red;
 }
 
 // Break.
 .t-break {
   display: block;
+}
+
+.t-subhead {
+  font-size: em($ratio--b);
+  font-weight: $font__mono--regular;
+  text-transform: uppercase;
+  margin: em($ratio--s) 0;
+  letter-spacing: .125em;
 }

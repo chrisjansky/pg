@@ -3,13 +3,13 @@
   letter-spacing: .125em;
   text-transform: uppercase;
   vertical-align: middle;
-  font-weight: $mono--regular;
+  font-weight: $font__mono--regular;
 }
 .t-caps--small {
   font-size: em($unit--xs);
 }
 .t-date {
-  font-family: $font--serif;
+  font-family: $font__mono;
   font-size: em($unit--s);
   letter-spacing: .25em;
 }

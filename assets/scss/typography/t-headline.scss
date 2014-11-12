@@ -1,14 +1,15 @@
 .t-h1 {
-  font-size: em($ratio--l);
-  font-family: $font--serif;
-  font-weight: $serif--regular;
+  font-size: em($unit--l);
+  font-family: $font__sans;
+  font-weight: $font__sans--bold;
   @include margin(em($ratio--xs) null);
   letter-spacing: .0625em;
   line-height: 1.1;
 }
 .t-h2 {
   font-size: em($unit--l);
-  font-family: $font--serif;
+  font-family: $font__sans;
+  font-weight: $font__sans--regular;
   @include margin(em($ratio--xs) null);
   letter-spacing: .125em;
 }
