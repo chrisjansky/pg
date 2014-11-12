@@ -1,31 +1,15 @@
-.o-people__thumbnail {
-  z-index: -1;
-}
-.t-highlight--paragraph {
-  position: relative;
-  z-index: 10;
-}
-.o-people__item {
-  position: relative;
-  @include state--hover {
-    z-index: 30;
-  }
-}
-.o-news__title {
-  position: relative;
-  z-index: 50;
-}
-.o-news__content {
-  position: relative;
-  z-index: 60;
-}
-.m-graduates {
-  position: relative;
-  z-index: 100;
-}
+// .t-highlight--paragraph {
+//   position: relative;
+//   z-index: 10;
+// }
+// .o-news__title {
+//   position: relative;
+//   z-index: 50;
+// }
+// .o-news__content {
+//   position: relative;
+//   z-index: 60;
+// }
 .o-header:hover {
   z-index: 200;
-}
-.featherlight {
-  z-index: 300;
 }

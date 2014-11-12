@@ -7,21 +7,32 @@
 
 // About.
 .m-about__image {
-  width: 100%;
+  @include margin(em($ratio--m) null);
+  max-width: 100%;
 }
 .m-about__content {
-  margin-top: em(-$ratio--h);
-  margin-right: em($ratio--b);
+  overflow: auto;
+  @include collapse-children;
+  // margin-top: em(-$ratio--h);
+  // margin-right: em($ratio--b);
 }
 
 // Person.
 .m-person {
-  margin-top: em($ratio--b);
+  @include clearfix;
+  @include margin(em($ratio--l) null);
 }
-.m-person__image {
-  width: 100%;
+.m-person__name {
+  @include span-columns(4);
+  @include collapse-children;
+}
+.m-person__bio {
+  @include span-columns(6);
 }
 .m-person__contact {
-  display: inline-block;
-  margin: 0;
+  float: left;
+  clear: both;
+  a {
+    color: inherit;
+  }
 }

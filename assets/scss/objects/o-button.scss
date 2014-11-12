@@ -1,9 +1,18 @@
-[class^="o-button--"],
-[class*=" o-button--"] {
-  font-weight: $mono--bold;
+[class^="o-button"],
+[class*=" o-button"] {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: $line--s solid;
+  br + & {
+    // Super hacky way of vertical spacing.
+    margin-top: em($ratio--s);
+  }
 }
 .o-button--selected {
-  background-color: $c-grey3;
+  cursor: default;
+  @include state--all {
+    color: black;
+  }
 }
 .o-button--dark {
   @include state--link {

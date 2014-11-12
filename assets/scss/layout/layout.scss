@@ -1,11 +1,10 @@
 // Container.
 .l-container {
-  margin-left: em($ratio--h);
-}
-
-// Section.
-.l-section--light {
-  @include rgba(background-color, $c-grey4, .25);
+  // background-color: $c-grey1;
+  max-width: em(1440);
+  @include media($tablet__up) {
+    margin-left: em($width--b);
+  }
 }
 
 // Grid columns.
@@ -21,8 +20,16 @@
   @include shift($column--one);
 }
 
-.l-divider {
+[class^="l-divider"],
+[class*=" l-divider"] {
   border-color: transparent;
   margin: 0;
-  height: em($ratio--l);
+  height: em($ratio--xl);
 }
+.l-divider--small {
+  height: em($ratio--b);
+}
+
+// .l-lower {
+//   margin-top: em($ratio--l);
+// }
