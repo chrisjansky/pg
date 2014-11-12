@@ -1,0 +1,16 @@
+ul.o-people
+  while peopleCount > 0
+    li.o-people__item
+      if (peopleCount % 14 == 0)
+        | Maximilián Zaostřený, řečený Vyvolaný
+      else if (peopleCount % 7 == 0)
+        | Naděžda Ostrá
+      else if (peopleCount % 4 == 0)
+        | Tomáš Vyfotil
+      else if (peopleCount % 3 == 0)
+        | Jan Clona
+      else if (peopleCount % 2 == 0)
+        | Ondřej Výbojka
+      else
+        | Matyáš Pasparta
+    - peopleCount--
