@@ -8,75 +8,36 @@ block template-body
 
   main.l-container
     .l-wrap
-      strong.t-caps Our Gallery
-      h1.t-h1
-        span.t-highlight--2 About Photogether Gallery
-      .m-about
-        img.m-about__image(src="http://unsplash.it/1024/480/?image=242", alt="unsplash.it")
-        .m-about__content.l-shift
-          p
-            span.t-highlight--paragraph.t-highlight--soft Photogether Gallery vznikla v listopadu 2010 jako prostor pro současnou kulturu, když nám byl velkoryse poskytnut prostor protiatomového krytu pod zlínskou poliklinikou. Provozují ji studenti Ateliéru reklamní fotografie.
-          p
-            span.t-highlight--paragraph.t-highlight--soft Od ryze školních projektů se přesouváme k volnějším výstavám a kurátorským akcím. Zorganizovali jsme pár výstav, koncertů, předvánoční jarmark a přednášek. Chceme dokázat, že Zlín není město odkud musí všichni utíkat.
-          a.o-button--outline.o-button--dark(href="contact") Contact Us
+      .l-block-group
+        .l-block--one
+          h1.t-subhead Recent
+          - var peopleCount = 5
+          include partials/_people
+        .l-block--normal
+          .l-inline
+            .l-inline__row
+              .l-inline__cell
+                h1.t-subhead Archive
+              .l-inline__cell
+                a.o-button(href="about") About
+          - var peopleCount = 20
+          include partials/_people
       hr.l-divider
-      h2.t-h2 Current Event
-      .o-news__item--gallery
-        img.o-news__image(src="http://unsplash.it/320/180/?image=242", alt="unsplash.it")
-        .o-news__title
-          h1.o-news__name.t-h1
-            span.t-highlight--1 Exhibition Name
-          span.o-news__date.t-date
-            span.t-highlight 27/10/2014
-        .o-news__content
-          p
-            span.t-highlight--paragraph.t-highlight--soft The old man babbled on, unheeded by the boys, who were long accustomed to his garrulousness, and whose vocabularies, besides, lacked the greater portion of the words he used.
-          .o-news__misc
-            strong.t-highlight--5 Authors
-            .o-news__authors
-              ul.o-dotlist--stacked
-                li.t-highlight--white.t-highlight--soft Jan Novák
-                li.t-highlight--white.t-highlight--soft Beáta Světlá
 
-  .l-container
-    .l-wrap.l-wrap--horizontal
-      .l-inline
-        .l-inline__row
-          .l-inline__cell
-            strong.t-caps Exhibition Photos
-          .l-inline__cell
-            .o-carousel__nav
-              a.o-carousel__arrow(href="#", data-swiper--prev) &larr;
-              a.o-carousel__arrow(href="#", data-swiper--next) &rarr;
-  .o-carousel.swiper-container
-    ul.o-carousel__list.swiper-wrapper
-      each instance, index in [211, 105, 332, 59, 366, 106, 99]
-        li.o-carousel__item.swiper-slide
-          a.o-carousel__link(href="http://unsplash.it/800/1200/?image=#{instance}", data-lightbox)
-            img(src="http://unsplash.it/200/120/?image=#{instance}", alt="unsplash.it")
-
-  section.l-container
-    .l-wrap
-      hr.l-divider
-      h3.t-h3 Past Events
-      ul.o-news
+      section.o-loop
         each instance, index in [386, 345, 343, 313]
-          hr
-          li.o-news__item.o-news__item--secondary(class="o-news__item--#{index + 1}")
-            img.o-news__image(src="http://unsplash.it/320/180/?image=#{instance}", alt="unsplash.it")
-            .o-news__title
-              h2.o-news__name.t-h2
-                span.t-highlight(class="t-highlight--#{index + 2}") Exhibition Name
-              span.o-news__date.t-date
-                span.t-highlight 27/10/2014
-            .o-news__content
-              p
-                span.t-highlight--paragraph.t-highlight--soft The old man babbled on, unheeded by the boys, who were long accustomed to his garrulousness, and whose vocabularies, besides, lacked the greater portion of the words he used.
-              if (index % 2 == 0)
-                .o-news__misc
-                  strong.t-highlight--5 Authors
-                  .o-news__authors
-                    ul.o-dotlist--stacked
-                      li.t-highlight--white.t-highlight--soft Jan Novák
-                      li.t-highlight--white.t-highlight--soft Beáta Světlá
-      a.o-news__contextual.o-button--outline(href="archive") Archive
+          article.o-loop__item(data-random="o-loop__item")
+            .o-loop__title
+              h2.t-h2 Exhibition Name
+              span.t-date 27/10/2014
+            .o-loop__thumbnail
+              img.o-loop__image(src="http://unsplash.it/800/500/?image=#{instance}", alt="unsplash.it")
+            .o-loop__content.o-color-block(data-random="o-color-block")
+              p Chosen photographs represent visualization of given problems or topics which were sketched. They actually originated as attempts, which – despite a real reason – gain a character of a childish game, which is, however, an ironic answer to the situation. Cheapjack, trivial and superficial humour, which serves as a simple defence against outside world, is also an important part. A high visual impressiveness of some attempts became a big problem.
+            .o-loop__aside
+              - var peopleCount = 10
+              include partials/_people--static
+            .o-loop__photo(data-random="o-loop__photo")
+              img.o-loop__image(src="http://unsplash.it/800/500/?image=#{instance + 10}", alt="unsplash.it")
+            .o-loop__photo(data-random="o-loop__photo")
+              img.o-loop__image(src="http://unsplash.it/800/500/?image=#{instance + 20}", alt="unsplash.it")
