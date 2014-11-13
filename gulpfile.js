@@ -44,7 +44,10 @@ var paths = {
   glob_images: "assets/images/**/*",
   ignore_images: "!assets/images/ignore{,/**}",
 
-  glob_data: "assets/data/*.json"
+  glob_data: "assets/data/*.json",
+
+  wp_css: "wp/wp-content/themes/pg/library/css",
+  wp_js: "wp/wp-content/themes/pg/library/js"
 };
 
 // Declare files to move to public/ during "build" task.
@@ -81,6 +84,7 @@ gulp.task("styles", function () {
       includePaths: require("node-neat").with("bower_components/")
     }))
     .pipe(gulp.dest(paths.css))
+    .pipe(gulp.dest(paths.wp_css))
     .pipe(bsync.reload({stream: true}));
 });
 
@@ -98,7 +102,7 @@ gulp.task("templates", ["fetch-data"], function() {
     .pipe(gulp.dest(paths.development));
 });
 
-// Minify CSS and JS.
+// Produce both CSS and JS.
 gulp.task("produce", ["wipe"], function() {
   return gulp.src(paths.pages)
     .pipe(plumber())
@@ -159,6 +163,16 @@ gulp.task("strip-css", ["produce"], function() {
       }))
       .pipe(gulp.dest(paths.production + paths.css));
   }
+});
+
+// Minify JS.
+gulp.task("scripts", function() {
+  return gulp.src(paths.pages)
+    .pipe(plumber())
+    .pipe(usemin({
+      js: [uglify()]
+    }))
+    .pipe(gulp.dest(paths.production));
 });
 
 // Wait for "compile" before starting up server.
