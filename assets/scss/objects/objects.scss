@@ -1,9 +1,11 @@
-// Authors
-.o-people {
+// Authors, Wordpress selectors.
+.o-people,
+.o-loop__aside ul {
   @include clearfix;
   @include reset-list;
 }
-.o-people__item {
+.o-people__item,
+.o-loop__aside li {
   float: left;
   // display: inline-block;
   // @include span-columns(2);

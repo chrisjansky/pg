@@ -5,12 +5,12 @@
   }
 }
 
-// About.
-.m-about__image {
+// Generic Wordpress page layout.
+.m-page__image {
   @include margin(em($ratio--m) null);
   max-width: 100%;
 }
-.m-about__content {
+.m-page__content {
   overflow: auto;
   @include collapse-children;
   // margin-top: em(-$ratio--h);
