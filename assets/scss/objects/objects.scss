@@ -19,6 +19,7 @@
   text-decoration: none;
 }
 .o-people__selected {
+  text-decoration: underline;
   @include state--all {
     color: black;
   }
