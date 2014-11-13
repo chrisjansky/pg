@@ -153,16 +153,16 @@ add_action( 'customize_register', 'bones_theme_customizer' );
 /************* ACTIVE SIDEBARS ********************/
 
 // Sidebars & Widgetizes Areas
-function bones_register_sidebars() {
-	register_sidebar(array(
-		'id' => 'sidebar1',
-		'name' => __( 'Sidebar 1', 'bonestheme' ),
-		'description' => __( 'The first (primary) sidebar.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
+// function bones_register_sidebars() {
+// 	register_sidebar(array(
+// 		'id' => 'sidebar1',
+// 		'name' => __( 'Sidebar 1', 'bonestheme' ),
+// 		'description' => __( 'The first (primary) sidebar.', 'bonestheme' ),
+// 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+// 		'after_widget' => '</div>',
+// 		'before_title' => '<h4 class="widgettitle">',
+// 		'after_title' => '</h4>',
+// 	));
 
 	/*
 	to add more sidebars or widgetized areas, just copy
@@ -188,7 +188,7 @@ function bones_register_sidebars() {
 	sidebar-sidebar2.php
 
 	*/
-} // don't remove this bracket!
+// } don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
 
@@ -230,12 +230,8 @@ function bones_comments( $comment, $args, $depth ) {
 } // don't remove this bracket!
 
 
-/*
-This is a modification of a function found in the
-twentythirteen theme where we can declare some
-external fonts. If you're using Google Fonts, you
-can replace these fonts, change it in your scss files
-and be up and running in seconds.
+/* 
+  PHOTOGETHER
 */
 function load_fonts() {
   wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Inconsolata:400,700');
@@ -269,7 +265,7 @@ function pg_create_posttypes() {
       'public' => true,
       'menu_position' => 5,
       'menu_icon' => 'dashicons-format-gallery',
-      'taxonomies' => array('student'),
+      'taxonomies' => array('student', 'graduate'),
       'supports' => array('title', 'editor', 'thumbnail'),
       'has_archive' => true,
       'rewrite' => array('slug' => 'project'),
@@ -279,12 +275,27 @@ function pg_create_posttypes() {
 function pg_create_taxonomies() {
   register_taxonomy('student', 'project', array(
     'labels' => array(
+        'name' => __('Students'),
         'menu_name' => __('Students')
       ),
+    'hierarchical' => true,
     'public' => true,
     'show_ui' => true,
+    'show_admin_column' => true,
     'has_archive' => true,
-    'rewrite' => array('slug' => 'student')
+    'rewrite' => array('slug' => 'students')
+  ));
+  register_taxonomy('graduate', 'project', array(
+    'labels' => array(
+        'name' => __('Graduates'),
+        'menu_name' => __('Graduates')
+      ),
+    'hierarchical' => true,
+    'public' => true,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'graduates')
   ));
 }
 function cleanse_rewrite() {
@@ -305,14 +316,38 @@ function my_remove_menu_pages() {
 
 // Connect Simple Fields.
 function pg_sf_connect($connector, $post) {
- 
   if ( "contact" === $post->post_name ) {
     $connector = "sf_for_contact";
   }
- 
   return $connector;
 }
- 
 add_filter("simple_fields_get_selected_connector_for_post", "pg_sf_connect", 10, 2);
+
+// get taxonomies terms links
+function list_custom_taxonomies() {
+  // get post by post id
+  $post = get_post( $post->ID );
+
+  // get post type by post
+  $post_type = $post->post_type;
+
+  // get post type taxonomies
+  $taxonomies = get_object_taxonomies( $post_type, 'objects' );
+
+  $out = array();
+  foreach ( $taxonomies as $taxonomy_slug => $taxonomy ){
+
+    // get the terms related to post
+    $terms = get_the_terms( $post->ID, $taxonomy_slug );
+
+    if ( !empty( $terms ) ) {
+      foreach ( $terms as $term ) {
+        $out[] = $term->name;
+      }
+    }
+  }
+
+  return implode('', $out );
+}
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
