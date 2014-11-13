@@ -13,7 +13,7 @@
 	    $term_list = '<ul class="o-people">';
 	    foreach ($terms as $term) {
 	        $i++;
-	    	$term_list .= '<li class="o-people__item"><a href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+	    	$term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
 	    	if ($count != $i) {
           $term_list .= "";
         }
