@@ -22,25 +22,28 @@
       </div>
     <?php } ?>
 
-    <section class="o-loop__content o-color-block" data-random="o-color-block">
-      <?php the_content(); ?>
-    </section>
+    <?php if(get_the_content()) { ?>
+      <section class="o-loop__content o-color-block" data-random="o-color-block">
+        <?php the_content(); ?>
+      </section>
+    <?php } ?>
 
-    <?php // Render additional photos from Simple Fields ?>
+    <?php // Render additional photos and textarea from Simple Fields ?>
+
     <?php
+    $moreTextarea = simple_fields_value("sf_textarea__item");
+    if ($moreTextarea) {
+      echo "<div class='o-loop__aside'>";
+      echo $moreTextarea;
+      echo "</div>";
+    }
+
     $morePhotos = simple_fields_values("sf_images__item");
 
     foreach ($morePhotos as $photo) {
       $parsedPhoto = wp_get_attachment_image_src($photo, "full");
       echo "<div class='o-loop__photo' data-random='o-loop__photo'>";
       echo "<img class='o-loop__image' src='$parsedPhoto[0]' alt='Additional Image' />";
-      echo "</div>";
-    }
-
-    $moreTextarea = simple_fields_value("sf_textarea__item");
-    if ($moreTextarea) {
-      echo "<div class='o-loop__aside'>";
-      echo $moreTextarea;
       echo "</div>";
     }
     ?>
