@@ -22,9 +22,11 @@
 			</div>
 		<?php } ?>
 
-		<section class="o-loop__content o-color-block" data-random="o-color-block">
-			<?php the_content(); ?>
-		</section>
+		<?php if(get_the_content()) { ?>
+      <section class="o-loop__content o-color-block" data-random="o-color-block">
+        <?php the_content(); ?>
+      </section>
+    <?php } ?>
 
 	</article>
 
