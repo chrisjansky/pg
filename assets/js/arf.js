@@ -9,7 +9,4 @@ $(document).on("ready", function() {
     $this.addClass($thisAttr + "--" + randomNum);
   });
 
-  $("a[href*='http']")
-    .attr("target", "_blank");
-
 });
