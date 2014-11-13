@@ -1,17 +1,24 @@
 <?php get_header(); ?>
 
-  <h1 class="t-subhead">Students</h1>
   <?php
   $args = array('hide_empty' => true);
 
-  $terms = get_terms('student', $args);
-  if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
+  $custom_taxonomies = array('student', 'graduate');
+
+  foreach ($custom_taxonomies as $key=>$custom_taxonomy) {
+    $terms = get_terms($custom_taxonomy, $args);
+    if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
       $count = count($terms);
-      $i=0;
+      $current_term = get_queried_object()->term_id;
+      $i = 0;
       $term_list = '<ul class="o-people">';
       foreach ($terms as $term) {
-          $i++;
-        $term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+        $i++;
+        if ($current_term == $term->term_id) {
+          $term_list .= '<li class="o-people__item"><span class="o-people__selected">' . $term->name . '</span></li>';
+        } else {
+          $term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+        }
         if ($count != $i) {
           $term_list .= "";
         }
@@ -19,38 +26,19 @@
           $term_list .= '</ul>';
         }
       }
-      echo $term_list;
-  }
-  ?>
-
-  <hr class="l-divider--small">
-  <h1 class="t-subhead">Graduates</h1>
-  <?php
-  $args = array('hide_empty' => true);
-
-  $terms = get_terms('graduate', $args);
-  if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
-      $count = count($terms);
-      $i=0;
-      $term_list = '<ul class="o-people">';
-      foreach ($terms as $term) {
-          $i++;
-        $term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
-        if ($count != $i) {
-          $term_list .= "";
-        }
-        else {
-          $term_list .= '</ul>';
-        }
+      echo '<h1 class="t-subhead">' . get_taxonomy($term->taxonomy)->label . '</h1>';
+      echo $term_list; 
+      if ($key == 0) {
+        echo '<hr class="l-divider--small">';
       }
-      echo $term_list;
+    }
   }
   ?>
 
   <section class="m-person">
     <div class="m-person__name">
       <h1 class="t-h1">
-        <?php echo list_custom_taxonomies(); ?>
+        <?php echo $wp_query->queried_object->name; ?>
       </h1>
     </div>
 
@@ -83,9 +71,11 @@
       }
       ?>
 
-      <section class="o-loop__content o-color-block" data-random="o-color-block">
-        <?php the_content(); ?>
-      </section>
+      <?php if(get_the_content()) { ?>
+        <section class="o-loop__content o-color-block" data-random="o-color-block">
+          <?php the_content(); ?>
+        </section>
+      <?php } ?>
 
       <?php // Render additional photos from Simple Fields ?>
       <?php
