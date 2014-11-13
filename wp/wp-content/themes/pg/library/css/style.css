@@ -181,8 +181,10 @@ p {
   display: block;
   text-decoration: none; }
 
-.o-people__selected:link, .o-people__selected:visited, .o-people__selected:hover, .o-people__selected:active, .o-people__selected:focus {
-  color: black; }
+.o-people__selected {
+  text-decoration: underline; }
+  .o-people__selected:link, .o-people__selected:visited, .o-people__selected:hover, .o-people__selected:active, .o-people__selected:focus {
+    color: black; }
 
 .o-pagination {
   list-style: none;
