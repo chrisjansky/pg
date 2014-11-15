@@ -50,9 +50,6 @@ function bones_ahoy() {
   // launching this stuff after theme setup
   bones_theme_support();
 
-  // adding sidebars to Wordpress (these are created in functions.php)
-  add_action( 'widgets_init', 'bones_register_sidebars' );
-
   // cleaning up random code around images
   add_filter( 'the_content', 'bones_filter_ptags_on_images' );
   // cleaning up excerpt
@@ -114,46 +111,6 @@ function bones_theme_customizer($wp_customize) {
 }
 
 add_action( 'customize_register', 'bones_theme_customizer' );
-
-/************* ACTIVE SIDEBARS ********************/
-
-// Sidebars & Widgetizes Areas
-// function bones_register_sidebars() {
-// 	register_sidebar(array(
-// 		'id' => 'sidebar1',
-// 		'name' => __( 'Sidebar 1', 'bonestheme' ),
-// 		'description' => __( 'The first (primary) sidebar.', 'bonestheme' ),
-// 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-// 		'after_widget' => '</div>',
-// 		'before_title' => '<h4 class="widgettitle">',
-// 		'after_title' => '</h4>',
-// 	));
-
-	/*
-	to add more sidebars or widgetized areas, just copy
-	and edit the above sidebar code. In order to call
-	your new sidebar just use the following code:
-
-	Just change the name to whatever your new
-	sidebar's id is, for example:
-
-	register_sidebar(array(
-		'id' => 'sidebar2',
-		'name' => __( 'Sidebar 2', 'bonestheme' ),
-		'description' => __( 'The second (secondary) sidebar.', 'bonestheme' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h4 class="widgettitle">',
-		'after_title' => '</h4>',
-	));
-
-	To call the sidebar in your template, you can just copy
-	the sidebar.php file and rename it to your sidebar's name.
-	So using the above example, it would be:
-	sidebar-sidebar2.php
-
-	*/
-// } don't remove this bracket!
 
 /************* COMMENT LAYOUT *********************/
 
@@ -241,7 +198,8 @@ function pg_create_taxonomies() {
   register_taxonomy('student', 'project', array(
     'labels' => array(
         'name' => __('Students'),
-        'menu_name' => __('Students')
+        'menu_name' => __('Students'),
+        'add_new_item' => __('Add New Student')
       ),
     'hierarchical' => true,
     'public' => true,
@@ -253,7 +211,8 @@ function pg_create_taxonomies() {
   register_taxonomy('graduate', 'project', array(
     'labels' => array(
         'name' => __('Graduates'),
-        'menu_name' => __('Graduates')
+        'menu_name' => __('Graduates'),
+        'add_new_item' => __('Add New Graduate')
       ),
     'hierarchical' => true,
     'public' => true,
@@ -276,7 +235,10 @@ add_action( 'init', 'cleanse_rewrite' );
 add_action('admin_menu', 'my_remove_menu_pages');
 function my_remove_menu_pages() {
   remove_menu_page('edit-comments.php');
-  // remove_menu_page('tools.php');
+  remove_menu_page('edit.php?post_type=custom_type');
+  remove_menu_page('themes.php');
+  remove_menu_page('tools.php');
+  remove_menu_page('plugins.php');
 }
 
 // Connect Simple Fields.
@@ -287,6 +249,12 @@ function pg_sf_connect($connector, $post) {
   return $connector;
 }
 add_filter("simple_fields_get_selected_connector_for_post", "pg_sf_connect", 10, 2);
+
+// Hide Simple Fields in Admin.
+function pg_sf_hide($post) {
+  return false;
+}
+add_filter("simple_fields_add_post_edit_side_field_settings", "pg_sf_hide", 10, 2);
 
 // get taxonomies terms links
 function list_custom_taxonomies() {
@@ -314,5 +282,12 @@ function list_custom_taxonomies() {
 
   return implode('', $out );
 }
+
+function mce_disable_buttons( $opt ) {
+  $opt['block_formats'] = "Paragraph=p;Header 1=h1;Header 2=h2";
+  $opt["toolbar1"] = "formatselect | bold italic bullist numlist | link unlink image | pastetext removeformat | preview fullscreen code";
+  return $opt;
+}
+add_filter('tiny_mce_before_init', 'mce_disable_buttons');
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
