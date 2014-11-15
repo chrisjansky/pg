@@ -1,6 +1,7 @@
 // General middot list.
 [class^="o-dotlist--"],
-[class*=" o-dotlist--"] {
+[class*=" o-dotlist--"],
+.o-dotlist-wrap ul {
   list-style: none;
   padding-left: 0;
   li:before {
@@ -36,7 +37,8 @@
 }
 
 // Aligned with left text edge.
-.o-dotlist--aligned {
+.o-dotlist--aligned,
+.o-dotlist-wrap {
   li {
     position: relative;
     &:before {

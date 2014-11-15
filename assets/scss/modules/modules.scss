@@ -17,19 +17,22 @@
   // margin-right: em($ratio--b);
 }
 
-// Person.
-.m-person {
+// Person and single exhibition.
+.m-single {
   @include clearfix;
-  @include margin(em($ratio--l) null);
+  margin-top: em($ratio--l);
 }
-.m-person__name {
+.m-single--person {
+  margin-bottom: em($ratio--l);
+}
+.m-single__name {
   @include span-columns(4);
   @include collapse-children;
 }
-.m-person__bio {
+.m-single__bio {
   @include span-columns(6);
 }
-.m-person__contact {
+.m-single__contact {
   float: left;
   clear: both;
   a {

@@ -1,10 +1,10 @@
 // Authors, Wordpress selectors.
-.o-people,
+.o-namelist,
 .o-loop__aside ul {
   @include clearfix;
   @include reset-list;
 }
-.o-people__item,
+.o-namelist__item,
 .o-loop__aside li {
   float: left;
   // display: inline-block;
@@ -14,11 +14,12 @@
   margin-bottom: em($ratio--s);
   vertical-align: top;
 }
-.o-people__link {
+// .o-namelist__link
+.o-namelist__item a {
   display: block;
   text-decoration: none;
 }
-.o-people__selected {
+.o-namelist__selected {
   text-decoration: underline;
   @include state--all {
     color: black;
@@ -28,24 +29,24 @@
 // Pagination
 .o-pagination {
   list-style: none;
-  text-align: center;
   padding-left: 0;
 }
 .o-pagination__item {
   display: inline-block;
   & + & {
-    margin-left: em($ratio--xs);
+    margin-left: em($ratio--s);
   }
 }
-[class^="o-pagination__link"],
-[class*=" o-pagination__link"] {
+// [class^="o-pagination__link"],
+// [class*=" o-pagination__link"],
+.o-pagination__item a,
+.o-pagination__item span {
   display: inline-block;
   padding: em($ratio--xs);
   text-decoration: none;
   border-bottom: $line--s solid;
 }
-// .o-pagination__link--selected {
-// }
+// .o-pagination__link--selected
 
 // Dotlist.
 .o-dotlist__item--nostyle {
