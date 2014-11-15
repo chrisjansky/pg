@@ -63,12 +63,14 @@
     float: left;
   }
   .o-loop__photo--2 {
+    float: left;
     @include shift(2);
   }
   .o-loop__photo--3 {
     @include span-columns(4);
   }
   .o-loop__photo--4 {
+    float: left;
     @include shift(1);
   }
 
