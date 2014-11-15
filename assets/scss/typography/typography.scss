@@ -1,13 +1,3 @@
-[class^="t-highlight"],
-[class*=" t-highlight"] {
-  outline: 3px solid red;
-}
-
-// Break.
-.t-break {
-  display: block;
-}
-
 .t-subhead {
   font-size: em($ratio--b);
   font-weight: $font__mono--regular;

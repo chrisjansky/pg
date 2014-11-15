@@ -4,7 +4,6 @@
   font-weight: $font__sans--bold;
   @include margin(em($ratio--xs) null);
   letter-spacing: .0625em;
-  line-height: 1.1;
 }
 .t-h2 {
   font-size: em($unit--l);
@@ -15,7 +14,6 @@
 }
 .t-h3 {
   font-size: em($ratio--b);
-  line-height: 1.3;
 }
 .t-h4 {
   font-size: em($ratio--b);
