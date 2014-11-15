@@ -38,8 +38,6 @@
 
 <body <?php body_class(); ?>>
 
-<div id="js-pjax">
-
 <header class="o-header">
 
 <a href="<?php echo site_url(""); ?>" rel="nofollow" class="o-logo">
