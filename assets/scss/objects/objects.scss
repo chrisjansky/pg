@@ -7,10 +7,7 @@
 .o-namelist__item,
 .o-loop__aside li {
   float: left;
-  // display: inline-block;
-  // @include span-columns(2);
-  // @include omega(5n);
-  width: em($width--b);
+  width: em($width--s);
   margin-bottom: em($ratio--s);
   vertical-align: top;
 }
@@ -78,7 +75,10 @@
   color: $c-color4--dark;
   background-color: $c-color4--light;
 }
-// .o-color-block--5 {
-//   color: $c-grey7;
-//   background-color: $c-grey3;
-// }
+
+@include media($tablet--landscape__up) {
+  .o-namelist__item,
+  .o-loop__aside li {
+    width: em($width--b);
+  }
+}

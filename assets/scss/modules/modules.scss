@@ -13,8 +13,6 @@
 .m-page__content {
   overflow: auto;
   @include collapse-children;
-  // margin-top: em(-$ratio--h);
-  // margin-right: em($ratio--b);
 }
 
 // Person and single exhibition.
@@ -37,5 +35,11 @@
   clear: both;
   a {
     color: inherit;
+  }
+}
+
+@include media($phone) {
+  .m-people {
+    display: none;
   }
 }

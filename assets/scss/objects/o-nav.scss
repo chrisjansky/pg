@@ -17,12 +17,10 @@
   li {
     margin-bottom: em($ratio--s);
   }
-  @include media($phone--landscape) {
+  @include media($phone) {
     li {
       display: inline-block;
-    }
-    li + li {
-      margin-left: em($ratio--b);
+      @include margin(null em($ratio--b));
     }
   }
 }

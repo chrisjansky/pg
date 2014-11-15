@@ -4,14 +4,35 @@
 
 [class^="l-block--"],
 [class*=" l-block--"] {
-  // overflow: auto;
   @include collapse-children;
 }
 
-.l-block--one {
-  float: left;
-  width: em($width--b);
+@include media($phone) {
+  [class^="l-block--"],
+  [class*=" l-block--"] {
+    & + & {
+      margin-top: em($ratio--m);
+    }
+  }
 }
-.l-block--normal {
-  overflow: auto;
+@include media($tablet__up) {
+  .l-block--one {
+    float: left;
+  }
+  .l-block--normal {
+    overflow: auto;
+  }
+}
+@include media($tablet--portrait) {
+  .l-block--one {
+    width: em($width--s);
+  }
+}
+@include media($tablet--landscape__up) {
+  .l-block--one {
+    width: em($width--b);
+    & + & {
+      margin-left: em($ratio--b);
+    }
+  }
 }

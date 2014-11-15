@@ -1,40 +1,9 @@
 // Media list.
-// .o-loop {
-  // @include reset-list;
-// }
 .o-loop__item {
   @include clearfix;
-  & + & {
-    margin-top: em($ratio--xxl);
-  }
-}
-.o-loop__title {
-  margin-bottom: em($ratio--m);
 }
 .o-loop__footer {
   margin-top: em($ratio--l);
-}
-
-// .o-loop__content {
-//   @include media($phone) {
-//     margin-top: em($ratio--b);
-//   }
-// }
-
-.o-loop__aside {
-  @include span-columns(5);
-  @include shift(1);
-  @include omega;
-  @include margin(em($ratio--l) null);
-  // ul {
-  //   @include clearfix;
-  // } 
-  // li {
-    // float: left;
-    // width: 
-    // @include span-columns(3 of 6);
-    // @include omega(2n);
-  // }
 }
 
 // All images.
@@ -49,72 +18,163 @@
   //   margin-right: em($ratio--m);  
   // }
 }
-// Additional photos.
-.o-loop__photo {
-  margin-top: em($ratio--b);
-}
-.o-loop__photo--1 {
-  @include span-columns(10);
-}
-.o-loop__photo--2 {
-  @include span-columns(6);
-  @include shift(2);
-}
-.o-loop__photo--3 {
-  @include span-columns(6);
-}
-.o-loop__photo--4 {
-  @include span-columns(8);
-  @include shift(2);
+
+@include media($phone) {
+  .o-loop__aside {
+    @include margin(em($ratio--b) null);
+  }
+  .o-loop__title {
+    margin-bottom: em($ratio--b);
+  }
+  .o-loop__item + .o-loop__item {
+    margin-top: em($ratio--m);
+  }
+  .o-loop__content,
+  .o-loop__photo {
+    margin-top: em($ratio--s);
+  }
 }
 
 // Variations.
-.o-loop__item--1 & {
-  .o-loop__title {
-    @include span-columns(4);
+@include media($tablet__up) {
+  .o-loop__aside {
+    float: left;
+    @include omega;
   }
-  .o-loop__thumbnail {
-    @include span-columns(6);
+  .o-loop__photo {
+    margin-top: em($ratio--b);
+  }
+  .o-loop__title {
+    margin-bottom: em($ratio--m);
+  }
+}
+@include media($tablet--portrait) {
+  .o-loop__aside {
+    @include margin(em($ratio--m) null);
   }
   .o-loop__content {
     margin-top: em($ratio--b);
-    clear: both;
-    @include span-columns(4);
+  }
+  .o-loop__item + .o-loop__item {
+    margin-top: em($ratio--xl);
+  }
+
+  .o-loop__photo--1 {
+    float: left;
+  }
+  .o-loop__photo--2 {
     @include shift(2);
   }
-}
-.o-loop__item--2 & {
-  .o-loop__title {
-    @include span-columns(2);
+  .o-loop__photo--3 {
+    @include span-columns(4);
   }
-  .o-loop__thumbnail {
+  .o-loop__photo--4 {
+    @include shift(1);
+  }
+
+  .o-loop__item--1 & {
+    .o-loop__thumbnail {
+      @include shift(1);
+    }
+    .o-loop__content {
+      @include span-columns(4);
+    }
+  }
+  .o-loop__item--2 & {
+    .o-loop__thumbnail {
+      @include span-columns(5);
+    }
+    .o-loop__content {
+      float: left;
+      @include shift(1);
+    }
+  }
+  .o-loop__item--3 & {
+    .o-loop__thumbnail {
+      @include shift(2);
+    }
+  }
+  .o-loop__item--4 & {
+    .o-loop__thumbnail {
+      @include shift(2);
+    }
+    .o-loop__content {
+      @include span-columns(4);
+    }
+  }
+}
+@include media($tablet--landscape__up) {
+  .o-loop__aside {
+    @include span-columns(5);
+    @include shift(1);
+    @include margin(em($ratio--l) null);
+  }
+  .o-loop__item + .o-loop__item {
+    margin-top: em($ratio--xxl);
+  }
+
+  .o-loop__photo--1 {
+    @include span-columns(10);
+  }
+  .o-loop__photo--2 {
+    @include span-columns(6);
+    @include shift(2);
+  }
+  .o-loop__photo--3 {
     @include span-columns(6);
   }
-  .o-loop__content {
-    @include span-columns(4);
-    @include omega;
-  }
-}
-.o-loop__item--3 & {
-  .o-loop__thumbnail {
+  .o-loop__photo--4 {
     @include span-columns(8);
+    @include shift(2);
   }
-  .o-loop__content {
-    @include span-columns(4);
-    @include omega;
+
+  .o-loop__item--1 & {
+    .o-loop__title {
+      @include span-columns(4);
+    }
+    .o-loop__thumbnail {
+      @include span-columns(6);
+    }
+    .o-loop__content {
+      margin-top: em($ratio--b);
+      clear: both;
+      @include span-columns(4);
+      @include shift(2);
+    }
   }
-}
-.o-loop__item--4 & {
-  .o-loop__title {
-    @include span-columns(4);
+  .o-loop__item--2 & {
+    .o-loop__title {
+      @include span-columns(2);
+    }
+    .o-loop__thumbnail {
+      @include span-columns(6);
+    }
+    .o-loop__content {
+      @include span-columns(4);
+      @include omega;
+    }
   }
-  .o-loop__thumbnail {
-    @include span-columns(8);
-    @include omega;
+  .o-loop__item--3 & {
+    .o-loop__thumbnail {
+      @include span-columns(8);
+    }
+    .o-loop__content {
+      @include span-columns(4);
+      @include omega;
+    }
   }
-  .o-loop__content {
-    margin-top: em($ratio--b);
-    clear: both;
-    @include span-columns(6);
+  .o-loop__item--4 & {
+    .o-loop__title {
+      @include span-columns(4);
+    }
+    .o-loop__thumbnail {
+      @include span-columns(8);
+      @include omega;
+    }
+    .o-loop__content {
+      margin-top: em($ratio--b);
+      clear: both;
+      @include span-columns(6);
+    }
   }
 }

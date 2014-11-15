@@ -8,11 +8,13 @@
 }
 
 // Grid columns.
-.l-column--primary {
-  @include span-columns($column--one);
-}
-.l-column--secondary {
-  @include span-columns($column--two);
+@include media($tablet--landscape__up) {
+  .l-column--primary {
+    @include span-columns($column--one);
+  }
+  .l-column--secondary {
+    @include span-columns($column--two);
+  }
 }
 
 // Shift.
@@ -24,12 +26,14 @@
 [class*=" l-divider"] {
   border-color: transparent;
   margin: 0;
-  height: em($ratio--xl);
+  height: em($ratio--m);
 }
 .l-divider--small {
   height: em($ratio--b);
 }
 
-// .l-lower {
-//   margin-top: em($ratio--l);
-// }
+@include media($tablet__up) {
+  .l-divider {
+    height: em($ratio--xl);
+  }
+}
