@@ -1,7 +1,7 @@
-ul.o-people
+ul.o-namelist
   while peopleCount > 0
-    - var personClass = (peopleCount === personSelected ? "o-people__selected" : "o-people__link")
-    li.o-people__item
+    - var personClass = (peopleCount === personSelected ? "o-namelist__selected" : "o-namelist__link")
+    li.o-namelist__item
       a(class=personClass, href="person")
         if (peopleCount % 14 == 0)
           | Maximilián Zaostřený, řečený Vyvolaný
