@@ -11,10 +11,10 @@
       $count = count($terms);
       $current_term = get_queried_object()->term_id;
       $i = 0;
-      $term_list = '<ul class="o-people">';
+      $term_list = '<ul class="o-namelist">';
       foreach ($terms as $term) {
         $i++;
-        $term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+        $term_list .= '<li class="o-namelist__item"><a class="o-namelist__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
         if ($count != $i) {
           $term_list .= "";
         }
