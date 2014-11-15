@@ -8,22 +8,23 @@ block template-body
 
   main.l-container
     .l-wrap
-      h1.t-subhead Students
-      - var peopleCount = 20, personSelected = 1
-      include partials/_people
-      hr.l-divider--small
-      h2.t-subhead Graduates
-      - var peopleCount = 20, personSelected = null
-      include partials/_people
-      .m-single.m-single--person
-        .m-single__name
-          h1.t-h1 Matyáš Pasparta
-        .m-single__bio.o-color-block(data-random="o-color-block")
-          p Author bio. The series Research consists of several attempts, thoughts and observations I was persistently interested in but had no time to devote my time to. The Research thus represents a partial resolving of questions which were not resolved before. It was made on the basis of a theoretical examination of photography as a means of expression.
-        .m-single__contact
-          ul.o-dotlist--stacked.o-color-block(data-random="o-color-block")
-            li: a(href="#") www.portfolio.com
-            li: a(href="#") matyas@pasparta.com
+      .m-people
+        h1.t-subhead Students
+        - var peopleCount = 20, personSelected = 1
+        include partials/_people
+        hr.l-divider--small
+        h2.t-subhead Graduates
+        - var peopleCount = 20, personSelected = null
+        include partials/_people
+        .m-single.m-single--person
+          .m-single__name
+            h1.t-h1 Matyáš Pasparta
+          .m-single__bio.o-color-block(data-random="o-color-block")
+            p Author bio. The series Research consists of several attempts, thoughts and observations I was persistently interested in but had no time to devote my time to. The Research thus represents a partial resolving of questions which were not resolved before. It was made on the basis of a theoretical examination of photography as a means of expression.
+          .m-single__contact
+            ul.o-dotlist--stacked.o-color-block(data-random="o-color-block")
+              li: a(href="#") www.portfolio.com
+              li: a(href="#") matyas@pasparta.com
       section.o-loop
         each instance, index in [386, 345, 343, 313]
           article.o-loop__item(data-random="o-loop__item")
