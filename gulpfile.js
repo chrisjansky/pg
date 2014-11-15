@@ -46,8 +46,7 @@ var paths = {
 
   glob_data: "assets/data/*.json",
 
-  wp_css: "wp/wp-content/themes/pg/library/css",
-  wp_js: "wp/wp-content/themes/pg/library/js"
+  wp_css: "wp/wp-content/themes/pg/library/css"
 };
 
 // Declare files to move to public/ during "build" task.
