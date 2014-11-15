@@ -1,55 +1,71 @@
 <?php get_header(); ?>
+	
+	<h1 class="t-subhead">All Exhibitions</h1>
+	<ul class="o-namelist">
+	<?php
+	$args = array(
+		'post_type' => 'exhibition',
+	);
+	$myposts = get_posts($args);
+	foreach ($myposts as $post) : setup_postdata($post);
+	?>
 
-	<h1>Single.php</h1>
+		<li class="o-namelist__item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+
+	<?php endforeach; wp_reset_postdata(); ?>
+	</ul>
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		<?php
-			/*
-			 * Ah, post formats. Nature's greatest mystery (aside from the sloth).
-			 *
-			 * So this function will bring in the needed template file depending on what the post
-			 * format is. The different post formats are located in the post-formats folder.
-			 *
-			 *
-			 * REMEMBER TO ALWAYS HAVE A DEFAULT ONE NAMED "format.php" FOR POSTS THAT AREN'T
-			 * A SPECIFIC POST FORMAT.
-			 *
-			 * If you want to remove post formats, just delete the post-formats folder and
-			 * replace the function below with the contents of the "format.php" file.
-			*/
-			get_template_part( 'post-formats/format', get_post_format() );
-		?>
+		<section class="m-single">
 
-		<?php
-			$tags = get_tags();
-			$html = '<div class="post_tags">';
-			foreach ( $tags as $tag ) {
-				$tag_link = get_tag_link( $tag->term_id );
-						
-				$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-				$html .= "{$tag->name}</a>";
-			}
-			$html .= '</div>';
-			echo $html;
-		?>
+			<article <?php post_class("o-loop__item"); ?> role="article" data-random="o-loop__item">
+
+		    <header class="o-loop__title">
+		      <h1 class="t-h1">
+		        <?php the_title(); ?>
+		      </h1>
+		      <span class="t-date"><?php the_date(); ?></span>
+		    </header>
+
+		    <?php if (has_post_thumbnail()) { ?>
+		      <div class="o-loop__thumbnail">
+		        <?php the_post_thumbnail("full", array("class" => "o-loop__image")); ?>
+		      </div>
+		    <?php } ?>
+
+		    <?php if(get_the_content()) { ?>
+		      <section class="o-loop__content o-color-block" data-random="o-color-block">
+		        <?php the_content(); ?>
+		      </section>
+		    <?php } ?>
+
+		    <?php // Render additional photos and textarea from Simple Fields
+
+		    $more_textarea = simple_fields_value("sf_textarea__item");
+		    if ($more_textarea) {
+		      echo "<div class='o-loop__aside'>";
+		      echo $more_textarea;
+		      echo "</div>";
+		    }
+
+		    $more_photos = simple_fields_values("sf_images__item");
+		    foreach ($more_photos as $photo) {
+		      $parsed_photo = wp_get_attachment_image_src($photo, "full");
+		      echo "<div class='o-loop__photo' data-random='o-loop__photo'>";
+		      echo "<img class='o-loop__image' src='$parsed_photo[0]' alt='Additional Image' />";
+		      echo "</div>";
+		    }
+		    ?>
+
+	  	</article>
+
+  	</section>
 
 	<?php endwhile; ?>
 
 	<?php else : ?>
-
-		<article id="post-not-found" class="hentry cf">
-				<header class="article-header">
-					<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-				</header>
-				<section class="entry-content">
-					<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-				</section>
-				<footer class="article-footer">
-						<p><?php _e( 'This is the error message in the single.php template.', 'bonestheme' ); ?></p>
-				</footer>
-		</article>
-
+		<h1 class="t-h1"><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
 	<?php endif; ?>
 
 <?php get_footer(); ?>

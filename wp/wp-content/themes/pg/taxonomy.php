@@ -11,13 +11,13 @@
       $count = count($terms);
       $current_term = get_queried_object()->term_id;
       $i = 0;
-      $term_list = '<ul class="o-people">';
+      $term_list = '<ul class="o-namelist">';
       foreach ($terms as $term) {
         $i++;
         if ($current_term == $term->term_id) {
-          $term_list .= '<li class="o-people__item"><span class="o-people__selected">' . $term->name . '</span></li>';
+          $term_list .= '<li class="o-namelist__item"><span class="o-namelist__selected">' . $term->name . '</span></li>';
         } else {
-          $term_list .= '<li class="o-people__item"><a class="o-people__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
+          $term_list .= '<li class="o-namelist__item"><a class="o-namelist__link" href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
         }
         if ($count != $i) {
           $term_list .= "";
@@ -35,15 +35,15 @@
   }
   ?>
 
-  <section class="m-person">
-    <div class="m-person__name">
+  <section class="m-single m-single--person">
+    <div class="m-single__name">
       <h1 class="t-h1">
         <?php echo $wp_query->queried_object->name; ?>
       </h1>
     </div>
 
     <?php if (term_description()) { ?>
-      <div data-random="o-color-block" class="m-person__bio o-color-block">
+      <div data-random="o-color-block" class="m-single__bio o-color-block">
         <?php echo term_description(); ?>
       </div>
     <?php } ?>
