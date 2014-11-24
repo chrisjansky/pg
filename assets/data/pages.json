@@ -4,12 +4,16 @@
     "link": "index"
   },
   {
-    "name": "Authors",
-    "link": "authors"
+    "name": "Projects",
+    "link": "projects"
   },
   {
-    "name": "Our Gallery",
+    "name": "Photogether Gallery",
     "link": "gallery"
+  },
+  {
+    "name": "About",
+    "link": "about"
   },
   {
     "name": "Contact",
