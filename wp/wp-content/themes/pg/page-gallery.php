@@ -5,7 +5,7 @@
 	<?php
 	$args = array(
 		'post_type' => 'exhibition',
-		'posts_per_page' => 2,
+		'posts_per_page' => 1,
 	);
 	query_posts($args);
 	if ( have_posts() ) : while (have_posts()) : the_post(); ?>
@@ -64,7 +64,8 @@
 	<?php
 	$args = array(
 		'post_type' => 'exhibition',
-		'offset' => 2
+		'offset' => 1,
+		'posts_per_page' => -1
 	);
 	$myposts = get_posts($args);
 	foreach ($myposts as $post) : setup_postdata($post);
