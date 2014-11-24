@@ -8,20 +8,9 @@ block template-body
 
   main.l-container
     .l-wrap
-      .l-block-group
-        .l-block--one
-          h1.t-subhead Recent
-          - var peopleCount = 5
-          include partials/_people
-        .l-block--normal
-          .l-inline
-            .l-inline__row
-              .l-inline__cell
-                h1.t-subhead Archive
-              .l-inline__cell
-                a.o-button(href="about") About
-          - var peopleCount = 20
-          include partials/_people
+      h1.t-subhead All Exhibitions
+      - var peopleCount = 20
+      include partials/_people
       hr.l-divider
 
       section.o-loop
