@@ -6,10 +6,7 @@
 }
 .o-namelist__item,
 .o-loop__aside li {
-  float: left;
-  width: em($width--s);
   margin-bottom: em($ratio--s);
-  vertical-align: top;
 }
 // .o-namelist__link
 .o-namelist__item a {
@@ -76,6 +73,14 @@
   background-color: $c-color4--light;
 }
 
+@include media($phone--landscape__up) {
+  .o-namelist__item,
+  .o-loop__aside li {
+    float: left;
+    width: em($width--s);
+    margin-right: em($ratio--m);
+  }
+}
 @include media($tablet--landscape__up) {
   .o-namelist__item,
   .o-loop__aside li {

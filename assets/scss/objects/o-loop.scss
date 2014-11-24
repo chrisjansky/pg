@@ -107,7 +107,7 @@
 }
 @include media($tablet--landscape__up) {
   .o-loop__aside {
-    @include span-columns(5);
+    @include span-columns(6);
     @include shift(1);
     @include margin(em($ratio--l) null);
   }

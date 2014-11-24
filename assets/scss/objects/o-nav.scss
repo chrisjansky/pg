@@ -1,5 +1,5 @@
-// .o-nav__link--selected
 // Selector for Wordpress.
+.o-nav__link--selected,
 .current-menu-item a {
   border-bottom: $line--s solid;
   @include state--all {

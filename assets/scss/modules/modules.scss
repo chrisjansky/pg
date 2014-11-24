@@ -9,6 +9,7 @@
 .m-page__image {
   @include margin(em($ratio--m) null);
   max-width: 100%;
+  height: auto;
 }
 .m-page__content {
   overflow: auto;

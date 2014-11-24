@@ -26,13 +26,16 @@
 @include media($tablet--portrait) {
   .l-block--one {
     width: em($width--s);
+    & + & {
+      margin-left: em($ratio--m);
+    }
   }
 }
 @include media($tablet--landscape__up) {
   .l-block--one {
     width: em($width--b);
     & + & {
-      margin-left: em($ratio--b);
+      margin-left: em($ratio--l);
     }
   }
 }
