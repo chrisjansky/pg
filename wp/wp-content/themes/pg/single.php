@@ -5,6 +5,7 @@
 	<?php
 	$args = array(
 		'post_type' => 'exhibition',
+		'posts_per_page' => -1
 	);
 	$myposts = get_posts($args);
 	foreach ($myposts as $post) : setup_postdata($post);
