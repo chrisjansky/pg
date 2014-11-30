@@ -18,14 +18,10 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
-<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-icon-touch.png">
-<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-<!--[if IE]>
-<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
-<![endif]-->
+<meta name="author" content="Christian Jánský &mdash; http://www.chrisjansky.cz">
 
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
+<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 
 <?php // wordpress head functions ?>
 <?php wp_head(); ?>
@@ -41,10 +37,10 @@
 <header class="o-header">
 
 <a href="<?php echo site_url(""); ?>" rel="nofollow" class="o-logo">
-<img src="<?php echo get_template_directory_uri(); ?>/library/images/logo_photogether.png" alt="Photogether Logo" class="o-logo__image" />
-<strong class="o-logo__title">
-<?php bloginfo('name'); ?>
-</strong>
+  <img src="<?php echo get_template_directory_uri(); ?>/library/images/logo_photogether.png" alt="Photogether Logo" class="o-logo__image" />
+  <strong class="o-logo__title">
+    <?php bloginfo('name'); ?>
+  </strong>
 </a>
 
 <?php // if you'd like to use the site description you can un-comment it below ?>
